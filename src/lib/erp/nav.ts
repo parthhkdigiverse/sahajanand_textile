@@ -97,7 +97,6 @@ export const NAV: NavGroup[] = [
   {
     label: "Operations",
     items: [
-      { title: "Live Pricing", to: "/live-pricing", icon: LineChart },
       { title: "Task Management", to: "/task-management", icon: ListTodo },
       { title: "Employees", to: "/employees", icon: UserCog },
     ],

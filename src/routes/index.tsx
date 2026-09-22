@@ -38,7 +38,6 @@ import {
   CHALLANS,
   DISPATCH_STAGES,
   KPIS,
-  LIVE_PRICING,
   MFR_PERFORMANCE,
   NOTIFICATIONS,
   PAYMENTS,
@@ -272,38 +271,7 @@ function Index() {
           </ul>
         </SectionCard>
 
-        <SectionCard
-          title="Live Material Pricing"
-          subtitle="Updated moments ago"
-          actions={
-            <Link to="/live-pricing" className="text-[12px] font-medium text-brand hover:underline">
-              Open
-            </Link>
-          }
-        >
-          <ul className="divide-y divide-border/60">
-            {LIVE_PRICING.slice(0, 5).map((p, i) => (
-              <li key={i} className="flex items-center justify-between py-2.5 first:pt-0 last:pb-0">
-                <div className="min-w-0">
-                  <div className="truncate text-[13px] font-medium">{p.material}</div>
-                  <div className="text-[11px] text-muted-foreground">
-                    {p.mfr} · {p.updated}
-                  </div>
-                </div>
-                <div className="ml-3 text-right">
-                  <div className="font-mono text-[13px] font-semibold">{inr(p.today)}</div>
-                  <div
-                    className={`text-[11px] font-medium ${
-                      p.diff >= 0 ? "text-success" : "text-danger"
-                    }`}
-                  >
-                    {p.diff >= 0 ? "▲" : "▼"} {inr(Math.abs(p.diff))}
-                  </div>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </SectionCard>
+
       </div>
 
       {/* Row: Top products bar chart + Manufacturer performance + Task timeline */}

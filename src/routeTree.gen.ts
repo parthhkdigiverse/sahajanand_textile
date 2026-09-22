@@ -29,7 +29,6 @@ import { Route as MillsRouteImport } from './routes/mills'
 import { Route as MillProcessRouteImport } from './routes/mill-process'
 import { Route as ManufacturingRouteImport } from './routes/manufacturing'
 import { Route as ManufacturersRouteImport } from './routes/manufacturers'
-import { Route as LivePricingRouteImport } from './routes/live-pricing'
 import { Route as LessInventoryRouteImport } from './routes/less-inventory'
 import { Route as InvoicesRouteImport } from './routes/invoices'
 import { Route as GstBillingRouteImport } from './routes/gst-billing'
@@ -146,11 +145,6 @@ const ManufacturersRoute = ManufacturersRouteImport.update({
   path: '/manufacturers',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LivePricingRoute = LivePricingRouteImport.update({
-  id: '/live-pricing',
-  path: '/live-pricing',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const LessInventoryRoute = LessInventoryRouteImport.update({
   id: '/less-inventory',
   path: '/less-inventory',
@@ -240,7 +234,6 @@ export interface FileRoutesByFullPath {
   '/gst-billing': typeof GstBillingRoute
   '/invoices': typeof InvoicesRoute
   '/less-inventory': typeof LessInventoryRoute
-  '/live-pricing': typeof LivePricingRoute
   '/manufacturers': typeof ManufacturersRoute
   '/manufacturing': typeof ManufacturingRoute
   '/mill-process': typeof MillProcessRoute
@@ -278,7 +271,6 @@ export interface FileRoutesByTo {
   '/gst-billing': typeof GstBillingRoute
   '/invoices': typeof InvoicesRoute
   '/less-inventory': typeof LessInventoryRoute
-  '/live-pricing': typeof LivePricingRoute
   '/manufacturers': typeof ManufacturersRoute
   '/manufacturing': typeof ManufacturingRoute
   '/mill-process': typeof MillProcessRoute
@@ -317,7 +309,6 @@ export interface FileRoutesById {
   '/gst-billing': typeof GstBillingRoute
   '/invoices': typeof InvoicesRoute
   '/less-inventory': typeof LessInventoryRoute
-  '/live-pricing': typeof LivePricingRoute
   '/manufacturers': typeof ManufacturersRoute
   '/manufacturing': typeof ManufacturingRoute
   '/mill-process': typeof MillProcessRoute
@@ -357,7 +348,6 @@ export interface FileRouteTypes {
     | '/gst-billing'
     | '/invoices'
     | '/less-inventory'
-    | '/live-pricing'
     | '/manufacturers'
     | '/manufacturing'
     | '/mill-process'
@@ -395,7 +385,6 @@ export interface FileRouteTypes {
     | '/gst-billing'
     | '/invoices'
     | '/less-inventory'
-    | '/live-pricing'
     | '/manufacturers'
     | '/manufacturing'
     | '/mill-process'
@@ -433,7 +422,6 @@ export interface FileRouteTypes {
     | '/gst-billing'
     | '/invoices'
     | '/less-inventory'
-    | '/live-pricing'
     | '/manufacturers'
     | '/manufacturing'
     | '/mill-process'
@@ -472,7 +460,6 @@ export interface RootRouteChildren {
   GstBillingRoute: typeof GstBillingRoute
   InvoicesRoute: typeof InvoicesRoute
   LessInventoryRoute: typeof LessInventoryRoute
-  LivePricingRoute: typeof LivePricingRoute
   ManufacturersRoute: typeof ManufacturersRoute
   ManufacturingRoute: typeof ManufacturingRoute
   MillProcessRoute: typeof MillProcessRoute
@@ -637,13 +624,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ManufacturersRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/live-pricing': {
-      id: '/live-pricing'
-      path: '/live-pricing'
-      fullPath: '/live-pricing'
-      preLoaderRoute: typeof LivePricingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/less-inventory': {
       id: '/less-inventory'
       path: '/less-inventory'
@@ -799,7 +779,6 @@ const rootRouteChildren: RootRouteChildren = {
   GstBillingRoute: GstBillingRoute,
   InvoicesRoute: InvoicesRoute,
   LessInventoryRoute: LessInventoryRoute,
-  LivePricingRoute: LivePricingRoute,
   ManufacturersRoute: ManufacturersRoute,
   ManufacturingRoute: ManufacturingRoute,
   MillProcessRoute: MillProcessRoute,
