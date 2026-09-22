@@ -69,8 +69,6 @@ export const NAV: NavGroup[] = [
     label: "Production",
     items: [
       { title: "Production Orders", to: "/production-orders", icon: ClipboardList },
-      { title: "Mill Process", to: "/mill-process", icon: Building2 },
-      { title: "Cutting Process", to: "/cutting-process", icon: Scissors },
       { title: "Quality Check", to: "/quality-check", icon: BadgeCheck },
       { title: "Packing", to: "/packing", icon: Archive },
     ],

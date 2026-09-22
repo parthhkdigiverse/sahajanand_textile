@@ -26,7 +26,6 @@ import { Route as PaymentsRouteImport } from './routes/payments'
 import { Route as PattaInventoryRouteImport } from './routes/patta-inventory'
 import { Route as PackingRouteImport } from './routes/packing'
 import { Route as MillsRouteImport } from './routes/mills'
-import { Route as MillProcessRouteImport } from './routes/mill-process'
 import { Route as ManufacturersRouteImport } from './routes/manufacturers'
 import { Route as LessInventoryRouteImport } from './routes/less-inventory'
 import { Route as InvoicesRouteImport } from './routes/invoices'
@@ -34,7 +33,6 @@ import { Route as GstBillingRouteImport } from './routes/gst-billing'
 import { Route as EmployeesRouteImport } from './routes/employees'
 import { Route as EWayBillRouteImport } from './routes/e-way-bill'
 import { Route as DeliveryChallanRouteImport } from './routes/delivery-challan'
-import { Route as CuttingProcessRouteImport } from './routes/cutting-process'
 import { Route as CustomersRouteImport } from './routes/customers'
 import { Route as CrmRouteImport } from './routes/crm'
 import { Route as ColorInventoryRouteImport } from './routes/color-inventory'
@@ -129,11 +127,6 @@ const MillsRoute = MillsRouteImport.update({
   path: '/mills',
   getParentRoute: () => rootRouteImport,
 } as any)
-const MillProcessRoute = MillProcessRouteImport.update({
-  id: '/mill-process',
-  path: '/mill-process',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ManufacturersRoute = ManufacturersRouteImport.update({
   id: '/manufacturers',
   path: '/manufacturers',
@@ -167,11 +160,6 @@ const EWayBillRoute = EWayBillRouteImport.update({
 const DeliveryChallanRoute = DeliveryChallanRouteImport.update({
   id: '/delivery-challan',
   path: '/delivery-challan',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CuttingProcessRoute = CuttingProcessRouteImport.update({
-  id: '/cutting-process',
-  path: '/cutting-process',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CustomersRoute = CustomersRouteImport.update({
@@ -221,7 +209,6 @@ export interface FileRoutesByFullPath {
   '/color-inventory': typeof ColorInventoryRoute
   '/crm': typeof CrmRoute
   '/customers': typeof CustomersRouteWithChildren
-  '/cutting-process': typeof CuttingProcessRoute
   '/delivery-challan': typeof DeliveryChallanRouteWithChildren
   '/e-way-bill': typeof EWayBillRoute
   '/employees': typeof EmployeesRoute
@@ -229,7 +216,6 @@ export interface FileRoutesByFullPath {
   '/invoices': typeof InvoicesRoute
   '/less-inventory': typeof LessInventoryRoute
   '/manufacturers': typeof ManufacturersRoute
-  '/mill-process': typeof MillProcessRoute
   '/mills': typeof MillsRouteWithChildren
   '/packing': typeof PackingRoute
   '/patta-inventory': typeof PattaInventoryRoute
@@ -257,7 +243,6 @@ export interface FileRoutesByTo {
   '/color-inventory': typeof ColorInventoryRoute
   '/crm': typeof CrmRoute
   '/customers': typeof CustomersRouteWithChildren
-  '/cutting-process': typeof CuttingProcessRoute
   '/delivery-challan': typeof DeliveryChallanRouteWithChildren
   '/e-way-bill': typeof EWayBillRoute
   '/employees': typeof EmployeesRoute
@@ -265,7 +250,6 @@ export interface FileRoutesByTo {
   '/invoices': typeof InvoicesRoute
   '/less-inventory': typeof LessInventoryRoute
   '/manufacturers': typeof ManufacturersRoute
-  '/mill-process': typeof MillProcessRoute
   '/mills': typeof MillsRouteWithChildren
   '/packing': typeof PackingRoute
   '/patta-inventory': typeof PattaInventoryRoute
@@ -294,7 +278,6 @@ export interface FileRoutesById {
   '/color-inventory': typeof ColorInventoryRoute
   '/crm': typeof CrmRoute
   '/customers': typeof CustomersRouteWithChildren
-  '/cutting-process': typeof CuttingProcessRoute
   '/delivery-challan': typeof DeliveryChallanRouteWithChildren
   '/e-way-bill': typeof EWayBillRoute
   '/employees': typeof EmployeesRoute
@@ -302,7 +285,6 @@ export interface FileRoutesById {
   '/invoices': typeof InvoicesRoute
   '/less-inventory': typeof LessInventoryRoute
   '/manufacturers': typeof ManufacturersRoute
-  '/mill-process': typeof MillProcessRoute
   '/mills': typeof MillsRouteWithChildren
   '/packing': typeof PackingRoute
   '/patta-inventory': typeof PattaInventoryRoute
@@ -332,7 +314,6 @@ export interface FileRouteTypes {
     | '/color-inventory'
     | '/crm'
     | '/customers'
-    | '/cutting-process'
     | '/delivery-challan'
     | '/e-way-bill'
     | '/employees'
@@ -340,7 +321,6 @@ export interface FileRouteTypes {
     | '/invoices'
     | '/less-inventory'
     | '/manufacturers'
-    | '/mill-process'
     | '/mills'
     | '/packing'
     | '/patta-inventory'
@@ -368,7 +348,6 @@ export interface FileRouteTypes {
     | '/color-inventory'
     | '/crm'
     | '/customers'
-    | '/cutting-process'
     | '/delivery-challan'
     | '/e-way-bill'
     | '/employees'
@@ -376,7 +355,6 @@ export interface FileRouteTypes {
     | '/invoices'
     | '/less-inventory'
     | '/manufacturers'
-    | '/mill-process'
     | '/mills'
     | '/packing'
     | '/patta-inventory'
@@ -404,7 +382,6 @@ export interface FileRouteTypes {
     | '/color-inventory'
     | '/crm'
     | '/customers'
-    | '/cutting-process'
     | '/delivery-challan'
     | '/e-way-bill'
     | '/employees'
@@ -412,7 +389,6 @@ export interface FileRouteTypes {
     | '/invoices'
     | '/less-inventory'
     | '/manufacturers'
-    | '/mill-process'
     | '/mills'
     | '/packing'
     | '/patta-inventory'
@@ -441,7 +417,6 @@ export interface RootRouteChildren {
   ColorInventoryRoute: typeof ColorInventoryRoute
   CrmRoute: typeof CrmRoute
   CustomersRoute: typeof CustomersRouteWithChildren
-  CuttingProcessRoute: typeof CuttingProcessRoute
   DeliveryChallanRoute: typeof DeliveryChallanRouteWithChildren
   EWayBillRoute: typeof EWayBillRoute
   EmployeesRoute: typeof EmployeesRoute
@@ -449,7 +424,6 @@ export interface RootRouteChildren {
   InvoicesRoute: typeof InvoicesRoute
   LessInventoryRoute: typeof LessInventoryRoute
   ManufacturersRoute: typeof ManufacturersRoute
-  MillProcessRoute: typeof MillProcessRoute
   MillsRoute: typeof MillsRouteWithChildren
   PackingRoute: typeof PackingRoute
   PattaInventoryRoute: typeof PattaInventoryRoute
@@ -590,13 +564,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MillsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/mill-process': {
-      id: '/mill-process'
-      path: '/mill-process'
-      fullPath: '/mill-process'
-      preLoaderRoute: typeof MillProcessRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/manufacturers': {
       id: '/manufacturers'
       path: '/manufacturers'
@@ -644,13 +611,6 @@ declare module '@tanstack/react-router' {
       path: '/delivery-challan'
       fullPath: '/delivery-challan'
       preLoaderRoute: typeof DeliveryChallanRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/cutting-process': {
-      id: '/cutting-process'
-      path: '/cutting-process'
-      fullPath: '/cutting-process'
-      preLoaderRoute: typeof CuttingProcessRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/customers': {
@@ -752,7 +712,6 @@ const rootRouteChildren: RootRouteChildren = {
   ColorInventoryRoute: ColorInventoryRoute,
   CrmRoute: CrmRoute,
   CustomersRoute: CustomersRouteWithChildren,
-  CuttingProcessRoute: CuttingProcessRoute,
   DeliveryChallanRoute: DeliveryChallanRouteWithChildren,
   EWayBillRoute: EWayBillRoute,
   EmployeesRoute: EmployeesRoute,
@@ -760,7 +719,6 @@ const rootRouteChildren: RootRouteChildren = {
   InvoicesRoute: InvoicesRoute,
   LessInventoryRoute: LessInventoryRoute,
   ManufacturersRoute: ManufacturersRoute,
-  MillProcessRoute: MillProcessRoute,
   MillsRoute: MillsRouteWithChildren,
   PackingRoute: PackingRoute,
   PattaInventoryRoute: PattaInventoryRoute,
