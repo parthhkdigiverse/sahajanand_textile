@@ -80,7 +80,6 @@ export const NAV: NavGroup[] = [
     label: "Logistics",
     items: [
       { title: "Delivery Challan", to: "/delivery-challan", icon: FileText },
-      { title: "Dispatch Pipeline", to: "/dispatch", icon: Send },
       { title: "Transport", to: "/transport", icon: Truck },
       { title: "E-Way Bill", to: "/e-way-bill", icon: MapPin },
     ],
