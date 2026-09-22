@@ -27,7 +27,6 @@ import { Route as PattaInventoryRouteImport } from './routes/patta-inventory'
 import { Route as PackingRouteImport } from './routes/packing'
 import { Route as MillsRouteImport } from './routes/mills'
 import { Route as MillProcessRouteImport } from './routes/mill-process'
-import { Route as ManufacturingRouteImport } from './routes/manufacturing'
 import { Route as ManufacturersRouteImport } from './routes/manufacturers'
 import { Route as LessInventoryRouteImport } from './routes/less-inventory'
 import { Route as InvoicesRouteImport } from './routes/invoices'
@@ -135,11 +134,6 @@ const MillProcessRoute = MillProcessRouteImport.update({
   path: '/mill-process',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ManufacturingRoute = ManufacturingRouteImport.update({
-  id: '/manufacturing',
-  path: '/manufacturing',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ManufacturersRoute = ManufacturersRouteImport.update({
   id: '/manufacturers',
   path: '/manufacturers',
@@ -235,7 +229,6 @@ export interface FileRoutesByFullPath {
   '/invoices': typeof InvoicesRoute
   '/less-inventory': typeof LessInventoryRoute
   '/manufacturers': typeof ManufacturersRoute
-  '/manufacturing': typeof ManufacturingRoute
   '/mill-process': typeof MillProcessRoute
   '/mills': typeof MillsRouteWithChildren
   '/packing': typeof PackingRoute
@@ -272,7 +265,6 @@ export interface FileRoutesByTo {
   '/invoices': typeof InvoicesRoute
   '/less-inventory': typeof LessInventoryRoute
   '/manufacturers': typeof ManufacturersRoute
-  '/manufacturing': typeof ManufacturingRoute
   '/mill-process': typeof MillProcessRoute
   '/mills': typeof MillsRouteWithChildren
   '/packing': typeof PackingRoute
@@ -310,7 +302,6 @@ export interface FileRoutesById {
   '/invoices': typeof InvoicesRoute
   '/less-inventory': typeof LessInventoryRoute
   '/manufacturers': typeof ManufacturersRoute
-  '/manufacturing': typeof ManufacturingRoute
   '/mill-process': typeof MillProcessRoute
   '/mills': typeof MillsRouteWithChildren
   '/packing': typeof PackingRoute
@@ -349,7 +340,6 @@ export interface FileRouteTypes {
     | '/invoices'
     | '/less-inventory'
     | '/manufacturers'
-    | '/manufacturing'
     | '/mill-process'
     | '/mills'
     | '/packing'
@@ -386,7 +376,6 @@ export interface FileRouteTypes {
     | '/invoices'
     | '/less-inventory'
     | '/manufacturers'
-    | '/manufacturing'
     | '/mill-process'
     | '/mills'
     | '/packing'
@@ -423,7 +412,6 @@ export interface FileRouteTypes {
     | '/invoices'
     | '/less-inventory'
     | '/manufacturers'
-    | '/manufacturing'
     | '/mill-process'
     | '/mills'
     | '/packing'
@@ -461,7 +449,6 @@ export interface RootRouteChildren {
   InvoicesRoute: typeof InvoicesRoute
   LessInventoryRoute: typeof LessInventoryRoute
   ManufacturersRoute: typeof ManufacturersRoute
-  ManufacturingRoute: typeof ManufacturingRoute
   MillProcessRoute: typeof MillProcessRoute
   MillsRoute: typeof MillsRouteWithChildren
   PackingRoute: typeof PackingRoute
@@ -608,13 +595,6 @@ declare module '@tanstack/react-router' {
       path: '/mill-process'
       fullPath: '/mill-process'
       preLoaderRoute: typeof MillProcessRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/manufacturing': {
-      id: '/manufacturing'
-      path: '/manufacturing'
-      fullPath: '/manufacturing'
-      preLoaderRoute: typeof ManufacturingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/manufacturers': {
@@ -780,7 +760,6 @@ const rootRouteChildren: RootRouteChildren = {
   InvoicesRoute: InvoicesRoute,
   LessInventoryRoute: LessInventoryRoute,
   ManufacturersRoute: ManufacturersRoute,
-  ManufacturingRoute: ManufacturingRoute,
   MillProcessRoute: MillProcessRoute,
   MillsRoute: MillsRouteWithChildren,
   PackingRoute: PackingRoute,
