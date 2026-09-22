@@ -35,7 +35,6 @@ import { Route as InvoicesRouteImport } from './routes/invoices'
 import { Route as GstBillingRouteImport } from './routes/gst-billing'
 import { Route as EmployeesRouteImport } from './routes/employees'
 import { Route as EWayBillRouteImport } from './routes/e-way-bill'
-import { Route as DispatchRouteImport } from './routes/dispatch'
 import { Route as DeliveryChallanRouteImport } from './routes/delivery-challan'
 import { Route as CuttingProcessRouteImport } from './routes/cutting-process'
 import { Route as CustomersRouteImport } from './routes/customers'
@@ -177,11 +176,6 @@ const EWayBillRoute = EWayBillRouteImport.update({
   path: '/e-way-bill',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DispatchRoute = DispatchRouteImport.update({
-  id: '/dispatch',
-  path: '/dispatch',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const DeliveryChallanRoute = DeliveryChallanRouteImport.update({
   id: '/delivery-challan',
   path: '/delivery-challan',
@@ -241,7 +235,6 @@ export interface FileRoutesByFullPath {
   '/customers': typeof CustomersRouteWithChildren
   '/cutting-process': typeof CuttingProcessRoute
   '/delivery-challan': typeof DeliveryChallanRouteWithChildren
-  '/dispatch': typeof DispatchRoute
   '/e-way-bill': typeof EWayBillRoute
   '/employees': typeof EmployeesRoute
   '/gst-billing': typeof GstBillingRoute
@@ -280,7 +273,6 @@ export interface FileRoutesByTo {
   '/customers': typeof CustomersRouteWithChildren
   '/cutting-process': typeof CuttingProcessRoute
   '/delivery-challan': typeof DeliveryChallanRouteWithChildren
-  '/dispatch': typeof DispatchRoute
   '/e-way-bill': typeof EWayBillRoute
   '/employees': typeof EmployeesRoute
   '/gst-billing': typeof GstBillingRoute
@@ -320,7 +312,6 @@ export interface FileRoutesById {
   '/customers': typeof CustomersRouteWithChildren
   '/cutting-process': typeof CuttingProcessRoute
   '/delivery-challan': typeof DeliveryChallanRouteWithChildren
-  '/dispatch': typeof DispatchRoute
   '/e-way-bill': typeof EWayBillRoute
   '/employees': typeof EmployeesRoute
   '/gst-billing': typeof GstBillingRoute
@@ -361,7 +352,6 @@ export interface FileRouteTypes {
     | '/customers'
     | '/cutting-process'
     | '/delivery-challan'
-    | '/dispatch'
     | '/e-way-bill'
     | '/employees'
     | '/gst-billing'
@@ -400,7 +390,6 @@ export interface FileRouteTypes {
     | '/customers'
     | '/cutting-process'
     | '/delivery-challan'
-    | '/dispatch'
     | '/e-way-bill'
     | '/employees'
     | '/gst-billing'
@@ -439,7 +428,6 @@ export interface FileRouteTypes {
     | '/customers'
     | '/cutting-process'
     | '/delivery-challan'
-    | '/dispatch'
     | '/e-way-bill'
     | '/employees'
     | '/gst-billing'
@@ -479,7 +467,6 @@ export interface RootRouteChildren {
   CustomersRoute: typeof CustomersRouteWithChildren
   CuttingProcessRoute: typeof CuttingProcessRoute
   DeliveryChallanRoute: typeof DeliveryChallanRouteWithChildren
-  DispatchRoute: typeof DispatchRoute
   EWayBillRoute: typeof EWayBillRoute
   EmployeesRoute: typeof EmployeesRoute
   GstBillingRoute: typeof GstBillingRoute
@@ -692,13 +679,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EWayBillRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/dispatch': {
-      id: '/dispatch'
-      path: '/dispatch'
-      fullPath: '/dispatch'
-      preLoaderRoute: typeof DispatchRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/delivery-challan': {
       id: '/delivery-challan'
       path: '/delivery-challan'
@@ -814,7 +794,6 @@ const rootRouteChildren: RootRouteChildren = {
   CustomersRoute: CustomersRouteWithChildren,
   CuttingProcessRoute: CuttingProcessRoute,
   DeliveryChallanRoute: DeliveryChallanRouteWithChildren,
-  DispatchRoute: DispatchRoute,
   EWayBillRoute: EWayBillRoute,
   EmployeesRoute: EmployeesRoute,
   GstBillingRoute: GstBillingRoute,
