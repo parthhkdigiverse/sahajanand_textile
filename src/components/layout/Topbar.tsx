@@ -145,7 +145,6 @@ export function Topbar({
               <DropdownMenuItem>My Profile</DropdownMenuItem>
               <DropdownMenuItem>Company Settings</DropdownMenuItem>
               <DropdownMenuItem>Users & Roles</DropdownMenuItem>
-              <DropdownMenuItem>Financial Year</DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem className="text-danger focus:text-danger">Sign out</DropdownMenuItem>
             </DropdownMenuContent>

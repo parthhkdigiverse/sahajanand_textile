@@ -507,10 +507,10 @@ function Index() {
             ))}
           </div>
           <Link
-            to="/dispatch"
+            to="/delivery-challan"
             className="mt-3 inline-flex items-center gap-1 text-[12px] font-medium text-brand hover:underline"
           >
-            View full pipeline <ChevronRight className="h-3 w-3" />
+            View delivery challans <ChevronRight className="h-3 w-3" />
           </Link>
         </SectionCard>
       </div>
