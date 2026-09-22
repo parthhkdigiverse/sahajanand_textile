@@ -163,14 +163,19 @@ export const CHALLANS = [
   { id: "DC/26-27/1029", date: "2026-07-01", customer: "Laxmi Fabric Mart", city: "Kolkata", transport: "Delhivery", vehicle: "WB-02-CD-3399", driver: "Sanjoy Das", items: 2, qty: 1400, status: "completed" as Status, eta: "2026-07-04", amount: 142100 },
 ];
 
+export type InvoiceType = "GST" | "Non-GST";
+
 export const INVOICES = [
-  { id: "INV/26-27/2201", date: "2026-07-03", customer: "Krishna Silk House", amount: 148500, gst: 7425, total: 155925, status: "paid" as Status, dueDays: 45 },
-  { id: "INV/26-27/2202", date: "2026-07-03", customer: "Radhe Fashion Fabrics", amount: 486200, gst: 58344, total: 544544, status: "partial" as Status, dueDays: 30 },
-  { id: "INV/26-27/2203", date: "2026-07-02", customer: "Sanskruti Weaves", amount: 322400, gst: 38688, total: 361088, status: "pending" as Status, dueDays: 45 },
-  { id: "INV/26-27/2204", date: "2026-07-02", customer: "Aashiyana Enterprises", amount: 612800, gst: 73536, total: 686336, status: "overdue" as Status, dueDays: 45 },
-  { id: "INV/26-27/2205", date: "2026-07-01", customer: "Vardhman Sarees", amount: 218400, gst: 26208, total: 244608, status: "paid" as Status, dueDays: 60 },
-  { id: "INV/26-27/2206", date: "2026-06-30", customer: "Laxmi Fabric Mart", amount: 142100, gst: 17052, total: 159152, status: "paid" as Status, dueDays: 30 },
-  { id: "INV/26-27/2207", date: "2026-06-30", customer: "Trimurti Textiles", amount: 385600, gst: 46272, total: 431872, status: "overdue" as Status, dueDays: 30 },
+  { id: "INV/26-27/2201", date: "2026-07-03", customer: "Krishna Silk House", type: "GST" as InvoiceType, amount: 148500, gst: 7425, total: 155925, status: "paid" as Status, dueDays: 45 },
+  { id: "INV/26-27/2202", date: "2026-07-03", customer: "Radhe Fashion Fabrics", type: "GST" as InvoiceType, amount: 486200, gst: 58344, total: 544544, status: "partial" as Status, dueDays: 30 },
+  { id: "EST/26-27/0401", date: "2026-07-02", customer: "Local Retail Counter", type: "Non-GST" as InvoiceType, amount: 85000, gst: 0, total: 85000, status: "paid" as Status, dueDays: 15 },
+  { id: "INV/26-27/2203", date: "2026-07-02", customer: "Sanskruti Weaves", type: "GST" as InvoiceType, amount: 322400, gst: 38688, total: 361088, status: "pending" as Status, dueDays: 45 },
+  { id: "INV/26-27/2204", date: "2026-07-02", customer: "Aashiyana Enterprises", type: "GST" as InvoiceType, amount: 612800, gst: 73536, total: 686336, status: "overdue" as Status, dueDays: 45 },
+  { id: "EST/26-27/0402", date: "2026-07-01", customer: "Shreeji Synthetics", type: "Non-GST" as InvoiceType, amount: 145000, gst: 0, total: 145000, status: "pending" as Status, dueDays: 30 },
+  { id: "INV/26-27/2205", date: "2026-07-01", customer: "Vardhman Sarees", type: "GST" as InvoiceType, amount: 218400, gst: 26208, total: 244608, status: "paid" as Status, dueDays: 60 },
+  { id: "INV/26-27/2206", date: "2026-06-30", customer: "Laxmi Fabric Mart", type: "GST" as InvoiceType, amount: 142100, gst: 17052, total: 159152, status: "paid" as Status, dueDays: 30 },
+  { id: "EST/26-27/0403", date: "2026-06-30", customer: "Anand Traders", type: "Non-GST" as InvoiceType, amount: 92000, gst: 0, total: 92000, status: "paid" as Status, dueDays: 15 },
+  { id: "INV/26-27/2207", date: "2026-06-30", customer: "Trimurti Textiles", type: "GST" as InvoiceType, amount: 385600, gst: 46272, total: 431872, status: "overdue" as Status, dueDays: 30 },
 ];
 
 export const PAYMENTS = [
