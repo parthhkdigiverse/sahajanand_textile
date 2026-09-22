@@ -9,172 +9,42 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as WarehouseRouteImport } from './routes/warehouse'
-import { Route as TransportRouteImport } from './routes/transport'
-import { Route as TaskManagementRouteImport } from './routes/task-management'
-import { Route as SuppliersRouteImport } from './routes/suppliers'
-import { Route as StockTransferRouteImport } from './routes/stock-transfer'
-import { Route as SettingsRouteImport } from './routes/settings'
-import { Route as SalesRouteImport } from './routes/sales'
-import { Route as ReportsRouteImport } from './routes/reports'
-import { Route as RawMaterialRouteImport } from './routes/raw-material'
-import { Route as QualityCheckRouteImport } from './routes/quality-check'
-import { Route as PurchaseRouteImport } from './routes/purchase'
-import { Route as ProductsRouteImport } from './routes/products'
-import { Route as ProductionOrdersRouteImport } from './routes/production-orders'
-import { Route as PaymentsRouteImport } from './routes/payments'
-import { Route as PattaInventoryRouteImport } from './routes/patta-inventory'
-import { Route as PackingRouteImport } from './routes/packing'
-import { Route as MillsRouteImport } from './routes/mills'
-import { Route as ManufacturersRouteImport } from './routes/manufacturers'
-import { Route as LessInventoryRouteImport } from './routes/less-inventory'
-import { Route as InvoicesRouteImport } from './routes/invoices'
-import { Route as GstBillingRouteImport } from './routes/gst-billing'
-import { Route as EmployeesRouteImport } from './routes/employees'
-import { Route as EWayBillRouteImport } from './routes/e-way-bill'
-import { Route as DeliveryChallanRouteImport } from './routes/delivery-challan'
-import { Route as CustomersRouteImport } from './routes/customers'
-import { Route as CrmRouteImport } from './routes/crm'
-import { Route as ColorInventoryRouteImport } from './routes/color-inventory'
-import { Route as AnalyticsRouteImport } from './routes/analytics'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as MillsIdRouteImport } from './routes/mills.$id'
-import { Route as DeliveryChallanIdRouteImport } from './routes/delivery-challan.$id'
+import { Route as AnalyticsRouteImport } from './routes/analytics'
+import { Route as ColorInventoryRouteImport } from './routes/color-inventory'
+import { Route as CrmRouteImport } from './routes/crm'
+import { Route as CustomersRouteImport } from './routes/customers'
+import { Route as DeliveryChallanRouteImport } from './routes/delivery-challan'
+import { Route as EWayBillRouteImport } from './routes/e-way-bill'
+import { Route as EmployeesRouteImport } from './routes/employees'
+import { Route as GstBillingRouteImport } from './routes/gst-billing'
+import { Route as InvoicesRouteImport } from './routes/invoices'
+import { Route as LessInventoryRouteImport } from './routes/less-inventory'
+import { Route as ManufacturersRouteImport } from './routes/manufacturers'
+import { Route as MillsRouteImport } from './routes/mills'
+import { Route as PackingRouteImport } from './routes/packing'
+import { Route as PattaInventoryRouteImport } from './routes/patta-inventory'
+import { Route as PaymentsRouteImport } from './routes/payments'
+import { Route as ProductionOrdersRouteImport } from './routes/production-orders'
+import { Route as ProductsRouteImport } from './routes/products'
+import { Route as PurchaseRouteImport } from './routes/purchase'
+import { Route as QualityCheckRouteImport } from './routes/quality-check'
+import { Route as RawMaterialRouteImport } from './routes/raw-material'
+import { Route as ReportsRouteImport } from './routes/reports'
+import { Route as SalesRouteImport } from './routes/sales'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as StockTransferRouteImport } from './routes/stock-transfer'
+import { Route as SuppliersRouteImport } from './routes/suppliers'
+import { Route as TaskManagementRouteImport } from './routes/task-management'
+import { Route as TransportRouteImport } from './routes/transport'
+import { Route as WarehouseRouteImport } from './routes/warehouse'
 import { Route as CustomersIdRouteImport } from './routes/customers.$id'
+import { Route as DeliveryChallanIdRouteImport } from './routes/delivery-challan.$id'
+import { Route as MillsIdRouteImport } from './routes/mills.$id'
 
-const WarehouseRoute = WarehouseRouteImport.update({
-  id: '/warehouse',
-  path: '/warehouse',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const TransportRoute = TransportRouteImport.update({
-  id: '/transport',
-  path: '/transport',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const TaskManagementRoute = TaskManagementRouteImport.update({
-  id: '/task-management',
-  path: '/task-management',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SuppliersRoute = SuppliersRouteImport.update({
-  id: '/suppliers',
-  path: '/suppliers',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const StockTransferRoute = StockTransferRouteImport.update({
-  id: '/stock-transfer',
-  path: '/stock-transfer',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SettingsRoute = SettingsRouteImport.update({
-  id: '/settings',
-  path: '/settings',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SalesRoute = SalesRouteImport.update({
-  id: '/sales',
-  path: '/sales',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ReportsRoute = ReportsRouteImport.update({
-  id: '/reports',
-  path: '/reports',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const RawMaterialRoute = RawMaterialRouteImport.update({
-  id: '/raw-material',
-  path: '/raw-material',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const QualityCheckRoute = QualityCheckRouteImport.update({
-  id: '/quality-check',
-  path: '/quality-check',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PurchaseRoute = PurchaseRouteImport.update({
-  id: '/purchase',
-  path: '/purchase',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProductsRoute = ProductsRouteImport.update({
-  id: '/products',
-  path: '/products',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProductionOrdersRoute = ProductionOrdersRouteImport.update({
-  id: '/production-orders',
-  path: '/production-orders',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PaymentsRoute = PaymentsRouteImport.update({
-  id: '/payments',
-  path: '/payments',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PattaInventoryRoute = PattaInventoryRouteImport.update({
-  id: '/patta-inventory',
-  path: '/patta-inventory',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PackingRoute = PackingRouteImport.update({
-  id: '/packing',
-  path: '/packing',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MillsRoute = MillsRouteImport.update({
-  id: '/mills',
-  path: '/mills',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ManufacturersRoute = ManufacturersRouteImport.update({
-  id: '/manufacturers',
-  path: '/manufacturers',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LessInventoryRoute = LessInventoryRouteImport.update({
-  id: '/less-inventory',
-  path: '/less-inventory',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const InvoicesRoute = InvoicesRouteImport.update({
-  id: '/invoices',
-  path: '/invoices',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const GstBillingRoute = GstBillingRouteImport.update({
-  id: '/gst-billing',
-  path: '/gst-billing',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EmployeesRoute = EmployeesRouteImport.update({
-  id: '/employees',
-  path: '/employees',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EWayBillRoute = EWayBillRouteImport.update({
-  id: '/e-way-bill',
-  path: '/e-way-bill',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DeliveryChallanRoute = DeliveryChallanRouteImport.update({
-  id: '/delivery-challan',
-  path: '/delivery-challan',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CustomersRoute = CustomersRouteImport.update({
-  id: '/customers',
-  path: '/customers',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CrmRoute = CrmRouteImport.update({
-  id: '/crm',
-  path: '/crm',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ColorInventoryRoute = ColorInventoryRouteImport.update({
-  id: '/color-inventory',
-  path: '/color-inventory',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AnalyticsRoute = AnalyticsRouteImport.update({
@@ -182,25 +52,155 @@ const AnalyticsRoute = AnalyticsRouteImport.update({
   path: '/analytics',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const ColorInventoryRoute = ColorInventoryRouteImport.update({
+  id: '/color-inventory',
+  path: '/color-inventory',
   getParentRoute: () => rootRouteImport,
 } as any)
-const MillsIdRoute = MillsIdRouteImport.update({
+const CrmRoute = CrmRouteImport.update({
+  id: '/crm',
+  path: '/crm',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CustomersRoute = CustomersRouteImport.update({
+  id: '/customers',
+  path: '/customers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DeliveryChallanRoute = DeliveryChallanRouteImport.update({
+  id: '/delivery-challan',
+  path: '/delivery-challan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EWayBillRoute = EWayBillRouteImport.update({
+  id: '/e-way-bill',
+  path: '/e-way-bill',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EmployeesRoute = EmployeesRouteImport.update({
+  id: '/employees',
+  path: '/employees',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GstBillingRoute = GstBillingRouteImport.update({
+  id: '/gst-billing',
+  path: '/gst-billing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InvoicesRoute = InvoicesRouteImport.update({
+  id: '/invoices',
+  path: '/invoices',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LessInventoryRoute = LessInventoryRouteImport.update({
+  id: '/less-inventory',
+  path: '/less-inventory',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ManufacturersRoute = ManufacturersRouteImport.update({
+  id: '/manufacturers',
+  path: '/manufacturers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MillsRoute = MillsRouteImport.update({
+  id: '/mills',
+  path: '/mills',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PackingRoute = PackingRouteImport.update({
+  id: '/packing',
+  path: '/packing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PattaInventoryRoute = PattaInventoryRouteImport.update({
+  id: '/patta-inventory',
+  path: '/patta-inventory',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PaymentsRoute = PaymentsRouteImport.update({
+  id: '/payments',
+  path: '/payments',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductionOrdersRoute = ProductionOrdersRouteImport.update({
+  id: '/production-orders',
+  path: '/production-orders',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsRoute = ProductsRouteImport.update({
+  id: '/products',
+  path: '/products',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PurchaseRoute = PurchaseRouteImport.update({
+  id: '/purchase',
+  path: '/purchase',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QualityCheckRoute = QualityCheckRouteImport.update({
+  id: '/quality-check',
+  path: '/quality-check',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RawMaterialRoute = RawMaterialRouteImport.update({
+  id: '/raw-material',
+  path: '/raw-material',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportsRoute = ReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SalesRoute = SalesRouteImport.update({
+  id: '/sales',
+  path: '/sales',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StockTransferRoute = StockTransferRouteImport.update({
+  id: '/stock-transfer',
+  path: '/stock-transfer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SuppliersRoute = SuppliersRouteImport.update({
+  id: '/suppliers',
+  path: '/suppliers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TaskManagementRoute = TaskManagementRouteImport.update({
+  id: '/task-management',
+  path: '/task-management',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TransportRoute = TransportRouteImport.update({
+  id: '/transport',
+  path: '/transport',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WarehouseRoute = WarehouseRouteImport.update({
+  id: '/warehouse',
+  path: '/warehouse',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CustomersIdRoute = CustomersIdRouteImport.update({
   id: '/$id',
   path: '/$id',
-  getParentRoute: () => MillsRoute,
+  getParentRoute: () => CustomersRoute,
 } as any)
 const DeliveryChallanIdRoute = DeliveryChallanIdRouteImport.update({
   id: '/$id',
   path: '/$id',
   getParentRoute: () => DeliveryChallanRoute,
 } as any)
-const CustomersIdRoute = CustomersIdRouteImport.update({
+const MillsIdRoute = MillsIdRouteImport.update({
   id: '/$id',
   path: '/$id',
-  getParentRoute: () => CustomersRoute,
+  getParentRoute: () => MillsRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -445,193 +445,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/warehouse': {
-      id: '/warehouse'
-      path: '/warehouse'
-      fullPath: '/warehouse'
-      preLoaderRoute: typeof WarehouseRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/transport': {
-      id: '/transport'
-      path: '/transport'
-      fullPath: '/transport'
-      preLoaderRoute: typeof TransportRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/task-management': {
-      id: '/task-management'
-      path: '/task-management'
-      fullPath: '/task-management'
-      preLoaderRoute: typeof TaskManagementRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/suppliers': {
-      id: '/suppliers'
-      path: '/suppliers'
-      fullPath: '/suppliers'
-      preLoaderRoute: typeof SuppliersRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/stock-transfer': {
-      id: '/stock-transfer'
-      path: '/stock-transfer'
-      fullPath: '/stock-transfer'
-      preLoaderRoute: typeof StockTransferRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/settings': {
-      id: '/settings'
-      path: '/settings'
-      fullPath: '/settings'
-      preLoaderRoute: typeof SettingsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sales': {
-      id: '/sales'
-      path: '/sales'
-      fullPath: '/sales'
-      preLoaderRoute: typeof SalesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/reports': {
-      id: '/reports'
-      path: '/reports'
-      fullPath: '/reports'
-      preLoaderRoute: typeof ReportsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/raw-material': {
-      id: '/raw-material'
-      path: '/raw-material'
-      fullPath: '/raw-material'
-      preLoaderRoute: typeof RawMaterialRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/quality-check': {
-      id: '/quality-check'
-      path: '/quality-check'
-      fullPath: '/quality-check'
-      preLoaderRoute: typeof QualityCheckRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/purchase': {
-      id: '/purchase'
-      path: '/purchase'
-      fullPath: '/purchase'
-      preLoaderRoute: typeof PurchaseRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/products': {
-      id: '/products'
-      path: '/products'
-      fullPath: '/products'
-      preLoaderRoute: typeof ProductsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/production-orders': {
-      id: '/production-orders'
-      path: '/production-orders'
-      fullPath: '/production-orders'
-      preLoaderRoute: typeof ProductionOrdersRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/payments': {
-      id: '/payments'
-      path: '/payments'
-      fullPath: '/payments'
-      preLoaderRoute: typeof PaymentsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/patta-inventory': {
-      id: '/patta-inventory'
-      path: '/patta-inventory'
-      fullPath: '/patta-inventory'
-      preLoaderRoute: typeof PattaInventoryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/packing': {
-      id: '/packing'
-      path: '/packing'
-      fullPath: '/packing'
-      preLoaderRoute: typeof PackingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/mills': {
-      id: '/mills'
-      path: '/mills'
-      fullPath: '/mills'
-      preLoaderRoute: typeof MillsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/manufacturers': {
-      id: '/manufacturers'
-      path: '/manufacturers'
-      fullPath: '/manufacturers'
-      preLoaderRoute: typeof ManufacturersRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/less-inventory': {
-      id: '/less-inventory'
-      path: '/less-inventory'
-      fullPath: '/less-inventory'
-      preLoaderRoute: typeof LessInventoryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/invoices': {
-      id: '/invoices'
-      path: '/invoices'
-      fullPath: '/invoices'
-      preLoaderRoute: typeof InvoicesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/gst-billing': {
-      id: '/gst-billing'
-      path: '/gst-billing'
-      fullPath: '/gst-billing'
-      preLoaderRoute: typeof GstBillingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/employees': {
-      id: '/employees'
-      path: '/employees'
-      fullPath: '/employees'
-      preLoaderRoute: typeof EmployeesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/e-way-bill': {
-      id: '/e-way-bill'
-      path: '/e-way-bill'
-      fullPath: '/e-way-bill'
-      preLoaderRoute: typeof EWayBillRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/delivery-challan': {
-      id: '/delivery-challan'
-      path: '/delivery-challan'
-      fullPath: '/delivery-challan'
-      preLoaderRoute: typeof DeliveryChallanRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/customers': {
-      id: '/customers'
-      path: '/customers'
-      fullPath: '/customers'
-      preLoaderRoute: typeof CustomersRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/crm': {
-      id: '/crm'
-      path: '/crm'
-      fullPath: '/crm'
-      preLoaderRoute: typeof CrmRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/color-inventory': {
-      id: '/color-inventory'
-      path: '/color-inventory'
-      fullPath: '/color-inventory'
-      preLoaderRoute: typeof ColorInventoryRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/analytics': {
@@ -641,19 +459,201 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AnalyticsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/color-inventory': {
+      id: '/color-inventory'
+      path: '/color-inventory'
+      fullPath: '/color-inventory'
+      preLoaderRoute: typeof ColorInventoryRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/mills/$id': {
-      id: '/mills/$id'
+    '/crm': {
+      id: '/crm'
+      path: '/crm'
+      fullPath: '/crm'
+      preLoaderRoute: typeof CrmRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/customers': {
+      id: '/customers'
+      path: '/customers'
+      fullPath: '/customers'
+      preLoaderRoute: typeof CustomersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/delivery-challan': {
+      id: '/delivery-challan'
+      path: '/delivery-challan'
+      fullPath: '/delivery-challan'
+      preLoaderRoute: typeof DeliveryChallanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/e-way-bill': {
+      id: '/e-way-bill'
+      path: '/e-way-bill'
+      fullPath: '/e-way-bill'
+      preLoaderRoute: typeof EWayBillRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/employees': {
+      id: '/employees'
+      path: '/employees'
+      fullPath: '/employees'
+      preLoaderRoute: typeof EmployeesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gst-billing': {
+      id: '/gst-billing'
+      path: '/gst-billing'
+      fullPath: '/gst-billing'
+      preLoaderRoute: typeof GstBillingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/invoices': {
+      id: '/invoices'
+      path: '/invoices'
+      fullPath: '/invoices'
+      preLoaderRoute: typeof InvoicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/less-inventory': {
+      id: '/less-inventory'
+      path: '/less-inventory'
+      fullPath: '/less-inventory'
+      preLoaderRoute: typeof LessInventoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/manufacturers': {
+      id: '/manufacturers'
+      path: '/manufacturers'
+      fullPath: '/manufacturers'
+      preLoaderRoute: typeof ManufacturersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mills': {
+      id: '/mills'
+      path: '/mills'
+      fullPath: '/mills'
+      preLoaderRoute: typeof MillsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/packing': {
+      id: '/packing'
+      path: '/packing'
+      fullPath: '/packing'
+      preLoaderRoute: typeof PackingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/patta-inventory': {
+      id: '/patta-inventory'
+      path: '/patta-inventory'
+      fullPath: '/patta-inventory'
+      preLoaderRoute: typeof PattaInventoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/payments': {
+      id: '/payments'
+      path: '/payments'
+      fullPath: '/payments'
+      preLoaderRoute: typeof PaymentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/production-orders': {
+      id: '/production-orders'
+      path: '/production-orders'
+      fullPath: '/production-orders'
+      preLoaderRoute: typeof ProductionOrdersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products': {
+      id: '/products'
+      path: '/products'
+      fullPath: '/products'
+      preLoaderRoute: typeof ProductsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/purchase': {
+      id: '/purchase'
+      path: '/purchase'
+      fullPath: '/purchase'
+      preLoaderRoute: typeof PurchaseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/quality-check': {
+      id: '/quality-check'
+      path: '/quality-check'
+      fullPath: '/quality-check'
+      preLoaderRoute: typeof QualityCheckRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/raw-material': {
+      id: '/raw-material'
+      path: '/raw-material'
+      fullPath: '/raw-material'
+      preLoaderRoute: typeof RawMaterialRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reports': {
+      id: '/reports'
+      path: '/reports'
+      fullPath: '/reports'
+      preLoaderRoute: typeof ReportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sales': {
+      id: '/sales'
+      path: '/sales'
+      fullPath: '/sales'
+      preLoaderRoute: typeof SalesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/stock-transfer': {
+      id: '/stock-transfer'
+      path: '/stock-transfer'
+      fullPath: '/stock-transfer'
+      preLoaderRoute: typeof StockTransferRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/suppliers': {
+      id: '/suppliers'
+      path: '/suppliers'
+      fullPath: '/suppliers'
+      preLoaderRoute: typeof SuppliersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/task-management': {
+      id: '/task-management'
+      path: '/task-management'
+      fullPath: '/task-management'
+      preLoaderRoute: typeof TaskManagementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/transport': {
+      id: '/transport'
+      path: '/transport'
+      fullPath: '/transport'
+      preLoaderRoute: typeof TransportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/warehouse': {
+      id: '/warehouse'
+      path: '/warehouse'
+      fullPath: '/warehouse'
+      preLoaderRoute: typeof WarehouseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/customers/$id': {
+      id: '/customers/$id'
       path: '/$id'
-      fullPath: '/mills/$id'
-      preLoaderRoute: typeof MillsIdRouteImport
-      parentRoute: typeof MillsRoute
+      fullPath: '/customers/$id'
+      preLoaderRoute: typeof CustomersIdRouteImport
+      parentRoute: typeof CustomersRoute
     }
     '/delivery-challan/$id': {
       id: '/delivery-challan/$id'
@@ -662,12 +662,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DeliveryChallanIdRouteImport
       parentRoute: typeof DeliveryChallanRoute
     }
-    '/customers/$id': {
-      id: '/customers/$id'
+    '/mills/$id': {
+      id: '/mills/$id'
       path: '/$id'
-      fullPath: '/customers/$id'
-      preLoaderRoute: typeof CustomersIdRouteImport
-      parentRoute: typeof CustomersRoute
+      fullPath: '/mills/$id'
+      preLoaderRoute: typeof MillsIdRouteImport
+      parentRoute: typeof MillsRoute
     }
   }
 }
@@ -740,3 +740,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

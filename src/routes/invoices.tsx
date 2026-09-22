@@ -100,6 +100,8 @@ function InvoicesPage() {
         >
           Non-GST Bills ({nonGstCount})
         </button>
+      </div>
+
       <div className="mt-4">
         <DataTable columns={cols} rows={filteredInvoices} addLabel="New Invoice" onAdd={() => {}} />
       </div>
