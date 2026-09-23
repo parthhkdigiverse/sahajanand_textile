@@ -1,37 +1,81 @@
+import { useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { NAV } from "@/lib/erp/nav";
 import { COMPANY } from "@/lib/erp/data";
 import { cn } from "@/lib/utils";
-import { X } from "lucide-react";
+import { X, PanelLeft, Search } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function Sidebar({
   collapsed,
+  onToggle,
   mobileOpen,
   onMobileClose,
 }: {
   collapsed: boolean;
+  onToggle?: () => void;
   mobileOpen: boolean;
   onMobileClose: () => void;
 }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const filteredNav = NAV.map((group) => {
+    const matchingItems = group.items.filter((item) =>
+      item.title.toLowerCase().includes(searchQuery.trim().toLowerCase())
+    );
+    return { ...group, items: matchingItems };
+  }).filter((group) => group.items.length > 0);
 
   const nav = (
     <nav className="scroll-thin flex h-full flex-col overflow-y-auto">
-      <div className="flex items-center gap-2.5 border-b border-border/70 px-4 py-4">
-        <div className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-brand text-brand-foreground shadow-sm">
-          <span className="text-sm font-bold tracking-tight">V</span>
-        </div>
-        {!collapsed && (
-          <div className="min-w-0">
-            <div className="truncate text-sm font-semibold tracking-tight">{COMPANY.short}</div>
-            <div className="truncate text-[11px] text-muted-foreground">{COMPANY.fy}</div>
+      <div className="flex items-center justify-between border-b border-border/70 px-4 py-4">
+        <div className="flex items-center gap-2.5 min-w-0">
+          <div className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-brand text-brand-foreground shadow-sm">
+            <span className="text-sm font-bold tracking-tight">V</span>
           </div>
+          {!collapsed && (
+            <div className="min-w-0">
+              <div className="truncate text-sm font-semibold tracking-tight">{COMPANY.short}</div>
+              <div className="truncate text-[11px] text-muted-foreground">{COMPANY.fy}</div>
+            </div>
+          )}
+        </div>
+        {onToggle && (
+          <button
+            onClick={onToggle}
+            className="hidden rounded-md p-1.5 text-muted-foreground hover:bg-muted hover:text-foreground transition-colors lg:inline-flex"
+            aria-label="Toggle sidebar"
+          >
+            <PanelLeft className={cn("h-[18px] w-[18px] transition-transform", collapsed && "rotate-180")} />
+          </button>
         )}
       </div>
 
-      <div className="flex-1 space-y-5 px-2.5 py-4">
-        {NAV.map((group) => (
+      {!collapsed && (
+        <div className="px-3 pt-3 pb-1">
+          <div className="relative">
+            <Search className="pointer-events-none absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-muted-foreground" />
+            <input
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search tabs…"
+              className="h-8 w-full rounded-lg border border-border/80 bg-surface pl-8 pr-7 text-[12px] text-foreground placeholder:text-muted-foreground focus:border-brand/40 focus:outline-none focus:ring-2 focus:ring-brand/15"
+            />
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery("")}
+                className="absolute right-2 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+              >
+                <X className="h-3.5 w-3.5" />
+              </button>
+            )}
+          </div>
+        </div>
+      )}
+
+      <div className="flex-1 space-y-5 px-2.5 py-3">
+        {filteredNav.map((group) => (
           <div key={group.label}>
             {!collapsed && (
               <div className="mb-1.5 px-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/70">
@@ -53,7 +97,7 @@ export function Sidebar({
                       className={cn(
                         "group relative flex items-center gap-2.5 rounded-lg px-2.5 py-2 text-[13px] font-medium text-foreground/70 transition-colors",
                         "hover:bg-brand-soft hover:text-foreground",
-                        active && "bg-brand-soft text-foreground",
+                        active && "bg-brand-soft text-foreground"
                       )}
                     >
                       {active && (
@@ -62,7 +106,7 @@ export function Sidebar({
                       <Icon
                         className={cn(
                           "h-[18px] w-[18px] shrink-0 text-muted-foreground",
-                          active && "text-brand",
+                          active && "text-brand"
                         )}
                       />
                       {!collapsed && <span className="truncate">{item.title}</span>}
@@ -73,6 +117,11 @@ export function Sidebar({
             </ul>
           </div>
         ))}
+        {filteredNav.length === 0 && !collapsed && (
+          <div className="px-3 py-6 text-center text-[12px] text-muted-foreground">
+            No navigation tab found for "{searchQuery}"
+          </div>
+        )}
       </div>
 
       {!collapsed && (

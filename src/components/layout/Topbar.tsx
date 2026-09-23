@@ -1,4 +1,4 @@
-import { Bell, Menu, PanelLeft, Search, Plus, HelpCircle } from "lucide-react";
+import { Bell, Menu, PanelLeft, Plus } from "lucide-react";
 import { COMPANY, USER, NOTIFICATIONS } from "@/lib/erp/data";
 import { cn } from "@/lib/utils";
 import {
@@ -30,24 +30,7 @@ export function Topbar({
         >
           <Menu className="h-5 w-5" />
         </button>
-        <button
-          onClick={onToggle}
-          className="hidden rounded-md p-1.5 text-muted-foreground hover:bg-muted lg:inline-flex"
-          aria-label="Toggle sidebar"
-        >
-          <PanelLeft className={cn("h-[18px] w-[18px] transition-transform", collapsed && "rotate-180")} />
-        </button>
 
-        <div className="relative hidden max-w-md flex-1 sm:block">
-          <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-          <input
-            placeholder="Search customers, invoices, challans, products…"
-            className="h-9 w-full rounded-lg border border-border/80 bg-surface pl-9 pr-14 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand/40 focus:outline-none focus:ring-2 focus:ring-brand/15"
-          />
-          <kbd className="pointer-events-none absolute right-2 top-1/2 hidden -translate-y-1/2 rounded border border-border bg-muted px-1.5 py-0.5 text-[10px] font-medium text-muted-foreground sm:inline-block">
-            ⌘K
-          </kbd>
-        </div>
 
         <div className="ml-auto flex items-center gap-1.5">
           <div className="mr-2 hidden text-right md:block">
@@ -74,12 +57,6 @@ export function Topbar({
             </DropdownMenuContent>
           </DropdownMenu>
 
-          <button
-            className="hidden rounded-md p-2 text-muted-foreground hover:bg-muted md:inline-flex"
-            aria-label="Help"
-          >
-            <HelpCircle className="h-[18px] w-[18px]" />
-          </button>
 
           <Popover>
             <PopoverTrigger asChild>
