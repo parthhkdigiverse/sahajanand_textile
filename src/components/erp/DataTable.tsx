@@ -55,15 +55,6 @@ export function DataTable<T extends { id: string | number }>({
             <Download className="h-3.5 w-3.5" />
             Export
           </button>
-          {onAdd !== undefined && (
-            <button
-              onClick={onAdd}
-              className="inline-flex h-8 items-center gap-1.5 rounded-md bg-brand px-3 text-[12px] font-medium text-brand-foreground shadow-sm hover:brightness-110"
-            >
-              <Plus className="h-3.5 w-3.5" />
-              {addLabel}
-            </button>
-          )}
         </div>
       </div>
       <div className="scroll-thin overflow-x-auto">
