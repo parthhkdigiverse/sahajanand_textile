@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { ModuleShell } from "@/components/erp/ModuleShell";
 import { SectionCard } from "@/components/erp/SectionCard";
 import { StatCard } from "@/components/erp/StatCard";
@@ -25,7 +25,7 @@ export const Route = createFileRoute("/e-way-bill")({
         </div>
         <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
           {bills.map((b) => (
-            <SectionCard key={b.id} title={b.id} subtitle={`Ref ${b.dc}`}>
+            <SectionCard key={b.id} title={b.id} subtitle={<>Ref <Link to="/delivery-challan/$id" params={{ id: b.dc }} className="text-brand hover:underline font-mono">{b.dc}</Link></>}>
               <div className="grid grid-cols-3 gap-3">
                 <div className="col-span-2 space-y-2 text-[12.5px]">
                   <Row label="Consignee" value={<><b>{b.customer}</b> · {b.city}</>} />

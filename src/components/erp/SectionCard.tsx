@@ -9,8 +9,8 @@ export function SectionCard({
   className,
   padded = true,
 }: {
-  title?: string;
-  subtitle?: string;
+  title?: ReactNode;
+  subtitle?: ReactNode;
   actions?: ReactNode;
   children: ReactNode;
   className?: string;

@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { ModuleShell } from "@/components/erp/ModuleShell";
 import { DataTable, type Column } from "@/components/erp/DataTable";
 import { StatCard } from "@/components/erp/StatCard";
@@ -12,7 +12,7 @@ export const Route = createFileRoute("/transport")({
   component: () => {
     const rows = CHALLANS.map((c, i) => ({ ...c, distance: [640, 285, 1120, 895, 640, 1650][i % 6], eta: c.eta }));
     const cols: Column<(typeof rows)[number]>[] = [
-      { key: "id", header: "LR / DC", render: (r) => <span className="font-mono text-brand">{r.id}</span> },
+      { key: "id", header: "LR / DC", render: (r) => <Link to="/delivery-challan/$id" params={{ id: r.id }} className="font-mono text-brand hover:underline font-semibold">{r.id}</Link> },
       { key: "cust", header: "Consignee", render: (r) => (<div><div className="font-medium">{r.customer}</div><div className="text-[11px] text-muted-foreground">{r.city}</div></div>) },
       { key: "t", header: "Transporter", render: (r) => r.transport },
       { key: "v", header: "Vehicle", render: (r) => <span className="font-mono text-[12px]">{r.vehicle}</span> },

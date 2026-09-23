@@ -388,7 +388,11 @@ function Index() {
             <tbody>
               {CHALLANS.slice(0, 5).map((c) => (
                 <tr key={c.id} className="border-t border-border/60 hover:bg-muted/40">
-                  <td className="px-4 py-2.5 font-mono text-[12px] text-brand">{c.id}</td>
+                  <td className="px-4 py-2.5 font-mono text-[12px] text-brand">
+                    <Link to="/delivery-challan/$id" params={{ id: c.id }} className="hover:underline font-semibold">
+                      {c.id}
+                    </Link>
+                  </td>
                   <td className="px-4 py-2.5">
                     <div className="font-medium">{c.customer}</div>
                     <div className="text-[11px] text-muted-foreground">{c.city}</div>
