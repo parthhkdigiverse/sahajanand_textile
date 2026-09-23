@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute, Link, Outlet, useMatch } from "@tanstack/react-router";
 import { ModuleShell } from "@/components/erp/ModuleShell";
 import { DataTable, type Column } from "@/components/erp/DataTable";
@@ -6,7 +7,8 @@ import { StatusBadge } from "@/components/erp/StatusBadge";
 import { Btn } from "@/components/erp/Actions";
 import { CUSTOMERS } from "@/lib/erp/data";
 import { inr, inrCompact } from "@/lib/erp/format";
-import { Download, Plus, Users, IndianRupee, ShieldAlert, TrendingUp } from "lucide-react";
+import { Download, Plus, Users, IndianRupee, ShieldAlert, TrendingUp, X } from "lucide-react";
+import { toast } from "sonner";
 
 export const Route = createFileRoute("/customers")({
   head: () => ({ meta: [{ title: "Customers — Vastra ERP" }] }),
@@ -22,12 +24,59 @@ function CustomersRouteComponent() {
 }
 
 function CustomersPage() {
-  const total = CUSTOMERS.length;
-  const outstanding = CUSTOMERS.reduce((s, c) => s + c.outstanding, 0);
-  const active = CUSTOMERS.filter((c) => c.status === "active").length;
-  const overdue = CUSTOMERS.filter((c) => c.status === "delayed").length;
+  const [customers, setCustomers] = useState(CUSTOMERS);
+  const [showModal, setShowModal] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    city: "Surat",
+    gstin: "",
+    contact: "",
+    phone: "",
+    category: "Wholesaler",
+    credit: 500000,
+    terms: "30 days",
+  });
 
-  const cols: Column<(typeof CUSTOMERS)[number]>[] = [
+  const total = customers.length;
+  const outstanding = customers.reduce((s, c) => s + c.outstanding, 0);
+  const active = customers.filter((c) => c.status === "active").length;
+  const overdue = customers.filter((c) => c.status === "delayed").length;
+
+  const handleAddCustomer = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.name.trim()) {
+      toast.error("Please enter customer name");
+      return;
+    }
+    const newCust = {
+      id: `CUST-${100 + customers.length + 1}`,
+      name: formData.name,
+      city: formData.city,
+      gstin: formData.gstin || "24AAAAA0000A1Z5",
+      contact: formData.contact || formData.name,
+      phone: formData.phone || "+91 98765 43210",
+      category: formData.category,
+      credit: Number(formData.credit),
+      outstanding: 0,
+      terms: formData.terms,
+      status: "active" as const,
+    };
+    setCustomers([newCust, ...customers]);
+    setShowModal(false);
+    setFormData({
+      name: "",
+      city: "Surat",
+      gstin: "",
+      contact: "",
+      phone: "",
+      category: "Wholesaler",
+      credit: 500000,
+      terms: "30 days",
+    });
+    toast.success(`Customer ${newCust.name} added successfully!`);
+  };
+
+  const cols: Column<(typeof customers)[number]>[] = [
     {
       key: "party",
       header: "Customer",
@@ -59,7 +108,7 @@ function CustomersPage() {
       actions={
         <>
           <Btn variant="outline"><Download className="h-4 w-4" /> Export</Btn>
-          <Btn variant="brand"><Plus className="h-4 w-4" /> New Customer</Btn>
+          <Btn variant="brand" onClick={() => setShowModal(true)}><Plus className="h-4 w-4" /> New Customer</Btn>
         </>
       }
     >
@@ -70,8 +119,110 @@ function CustomersPage() {
         <StatCard label="MTD Sales" value={inrCompact(8_74_65_000)} icon={TrendingUp} tone="success" delta={12.4} />
       </div>
       <div className="mt-4">
-        <DataTable columns={cols} rows={CUSTOMERS} addLabel="Add Customer" onAdd={() => {}} />
+        <DataTable columns={cols} rows={customers} />
       </div>
+
+      {showModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-sm">
+          <div className="w-full max-w-lg rounded-xl border border-border bg-card p-6 shadow-xl">
+            <div className="flex items-center justify-between border-b border-border/60 pb-3">
+              <h3 className="text-base font-semibold text-foreground">Add New Customer</h3>
+              <button onClick={() => setShowModal(false)} className="rounded-md p-1 text-muted-foreground hover:bg-muted hover:text-foreground">
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+
+            <form onSubmit={handleAddCustomer} className="mt-4 space-y-4">
+              <div>
+                <label className="block text-xs font-medium text-muted-foreground">Customer / Firm Name *</label>
+                <input
+                  type="text"
+                  required
+                  placeholder="e.g. Radhey Shyam Fabrics"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  className="mt-1 w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand"
+                />
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-xs font-medium text-muted-foreground">City</label>
+                  <input
+                    type="text"
+                    value={formData.city}
+                    onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+                    className="mt-1 w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-medium text-muted-foreground">GSTIN</label>
+                  <input
+                    type="text"
+                    placeholder="24AAAAA0000A1Z5"
+                    value={formData.gstin}
+                    onChange={(e) => setFormData({ ...formData, gstin: e.target.value })}
+                    className="mt-1 w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand font-mono"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-xs font-medium text-muted-foreground">Contact Person</label>
+                  <input
+                    type="text"
+                    placeholder="e.g. Ramesh Shah"
+                    value={formData.contact}
+                    onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
+                    className="mt-1 w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-medium text-muted-foreground">Phone Number</label>
+                  <input
+                    type="text"
+                    placeholder="+91 98250 12345"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    className="mt-1 w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-xs font-medium text-muted-foreground">Credit Limit (₹)</label>
+                  <input
+                    type="number"
+                    value={formData.credit}
+                    onChange={(e) => setFormData({ ...formData, credit: Number(e.target.value) })}
+                    className="mt-1 w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand font-mono"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-medium text-muted-foreground">Category</label>
+                  <select
+                    value={formData.category}
+                    onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+                    className="mt-1 w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand"
+                  >
+                    <option value="Wholesaler">Wholesaler</option>
+                    <option value="Retailer">Retailer</option>
+                    <option value="Distributor">Distributor</option>
+                    <option value="Boutique">Boutique</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="flex justify-end gap-2 pt-3 border-t border-border/60">
+                <Btn type="button" variant="outline" onClick={() => setShowModal(false)}>Cancel</Btn>
+                <Btn type="submit" variant="brand">Save Customer</Btn>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </ModuleShell>
   );
 }
