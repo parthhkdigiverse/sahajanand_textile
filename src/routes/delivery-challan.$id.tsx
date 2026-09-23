@@ -116,13 +116,44 @@ function DCDetail() {
               <span className="text-[11px] text-muted-foreground">ETA {shortDate(c.eta)}</span>
             </div>
             <ol className="relative space-y-3 border-l border-border pl-4">
-              {["Challan created","Loaded on vehicle","In transit","Out for delivery","Delivered"].map((s, i) => (
-                <li key={s} className="relative">
-                  <span className={`absolute -left-[21px] top-0.5 grid h-4 w-4 place-items-center rounded-full ring-4 ring-background ${i < 3 ? "bg-success text-success-foreground" : i === 3 ? "bg-brand text-brand-foreground" : "bg-muted"}`}>{i < 3 && <CheckCircle2 className="h-3 w-3" />}</span>
-                  <div className="text-[12.5px] font-medium">{s}</div>
-                  <div className="text-[11px] text-muted-foreground">{i < 3 ? "Completed" : i === 3 ? "In progress" : "Pending"}</div>
-                </li>
-              ))}
+              {["Challan created", "Loaded on vehicle", "In transit", "Out for delivery", "Delivered"].map((stage, idx) => {
+                let stageState: "completed" | "in_progress" | "delayed" | "pending" = "pending";
+                
+                if (c.status === "completed") {
+                  stageState = "completed";
+                } else if (c.status === "processing") {
+                  if (idx < 3) stageState = "completed";
+                  else if (idx === 3) stageState = "in_progress";
+                } else if (c.status === "delayed") {
+                  if (idx < 2) stageState = "completed";
+                  else if (idx === 2) stageState = "delayed";
+                } else {
+                  if (idx === 0) stageState = "completed";
+                  else if (idx === 1) stageState = "in_progress";
+                }
+
+                return (
+                  <li key={stage} className="relative">
+                    <span
+                      className={`absolute -left-[21px] top-0.5 grid h-4 w-4 place-items-center rounded-full ring-4 ring-background ${
+                        stageState === "completed"
+                          ? "bg-success text-success-foreground"
+                          : stageState === "in_progress"
+                          ? "bg-brand text-brand-foreground"
+                          : stageState === "delayed"
+                          ? "bg-danger text-danger-foreground"
+                          : "bg-muted text-muted-foreground"
+                      }`}
+                    >
+                      {stageState === "completed" && <CheckCircle2 className="h-3 w-3" />}
+                    </span>
+                    <div className="text-[12.5px] font-medium">{stage}</div>
+                    <div className="text-[11px] text-muted-foreground capitalize">
+                      {stageState === "in_progress" ? "In progress" : stageState}
+                    </div>
+                  </li>
+                );
+              })}
             </ol>
           </SectionCard>
 
