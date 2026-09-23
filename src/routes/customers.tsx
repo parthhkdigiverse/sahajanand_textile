@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, Outlet, useMatch } from "@tanstack/react-router";
 import { ModuleShell } from "@/components/erp/ModuleShell";
 import { DataTable, type Column } from "@/components/erp/DataTable";
 import { StatCard } from "@/components/erp/StatCard";
@@ -10,8 +10,16 @@ import { Download, Plus, Users, IndianRupee, ShieldAlert, TrendingUp } from "luc
 
 export const Route = createFileRoute("/customers")({
   head: () => ({ meta: [{ title: "Customers — Vastra ERP" }] }),
-  component: CustomersPage,
+  component: CustomersRouteComponent,
 });
+
+function CustomersRouteComponent() {
+  const matchDetail = useMatch({ from: "/customers/$id", shouldThrow: false });
+  if (matchDetail) {
+    return <Outlet />;
+  }
+  return <CustomersPage />;
+}
 
 function CustomersPage() {
   const total = CUSTOMERS.length;

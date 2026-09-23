@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, Outlet, useMatch } from "@tanstack/react-router";
 import { ModuleShell } from "@/components/erp/ModuleShell";
 import { SectionCard } from "@/components/erp/SectionCard";
 import { StatCard } from "@/components/erp/StatCard";
@@ -11,8 +11,16 @@ import { motion } from "framer-motion";
 
 export const Route = createFileRoute("/mills")({
   head: () => ({ meta: [{ title: "Mill Process — Vastra ERP" }] }),
-  component: MillsPage,
+  component: MillsRouteComponent,
 });
+
+function MillsRouteComponent() {
+  const matchDetail = useMatch({ from: "/mills/$id", shouldThrow: false });
+  if (matchDetail) {
+    return <Outlet />;
+  }
+  return <MillsPage />;
+}
 
 function MillsPage() {
   const sent = MILLS.reduce((s, m) => s + m.fabricSent, 0);
