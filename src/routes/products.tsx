@@ -27,10 +27,7 @@ function ProductsPage() {
       title="Product Master"
       subtitle="Less, Patta, Borders & Lace catalog with pricing and stock."
       actions={
-        <>
-          <Btn variant="outline"><Download className="h-4 w-4" /> Export CSV</Btn>
-          <Btn variant="brand"><Plus className="h-4 w-4" /> New Product</Btn>
-        </>
+        <Btn variant="brand"><Plus className="h-4 w-4" /> New Product</Btn>
       }
     >
       <div className="grid grid-cols-2 gap-3 md:grid-cols-4">

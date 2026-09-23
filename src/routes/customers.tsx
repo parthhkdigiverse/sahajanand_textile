@@ -106,10 +106,7 @@ function CustomersPage() {
       title="Customers"
       subtitle="Directory, ledgers, credit limits and outstanding."
       actions={
-        <>
-          <Btn variant="outline"><Download className="h-4 w-4" /> Export</Btn>
-          <Btn variant="brand" onClick={() => setShowModal(true)}><Plus className="h-4 w-4" /> New Customer</Btn>
-        </>
+        <Btn variant="brand" onClick={() => setShowModal(true)}><Plus className="h-4 w-4" /> New Customer</Btn>
       }
     >
       <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
